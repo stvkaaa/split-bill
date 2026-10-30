@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Split Bill</title>
+<meta name="description" content="Split a restaurant bill fairly: shared items, service charge, tax and discounts. Runs entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Split Bill</h1>
+    <p class="sub">Shared plates, service charge, tax and discounts. Everything stays in your browser.</p>
+  </header>
+
+  <section class="panel" aria-labelledby="h-people">
+    <h2 id="h-people"><span class="n">1</span> Who is splitting?</h2>
+    <div class="row">
+      <input id="pname" class="grow" type="text" maxlength="40" placeholder="Add a name, then press Enter" aria-label="Person name" autocomplete="off">
+      <button id="padd" class="primary" type="button">Add person</button>
+    </div>
+    <div id="people" class="chips"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h-items">
+    <h2 id="h-items"><span class="n">2</span> What was ordered?</h2>
+    <div id="items"></div>
+    <div class="actions">
+      <button id="iadd" type="button">+ Add item</button>
+      <button id="example" type="button">Load an example</button>
+    </div>
+    <p class="hint">Each item is split equally among the people highlighted under it. New items start shared by everyone.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="h-extra">
+    <h2 id="h-extra"><span class="n">3</span> Extras</h2>
+    <div class="settings">
+      <label class="f">Currency<select id="cur"></select></label>
+      <label class="f">Service charge %<input id="svc" type="text" inputmode="decimal" placeholder="0"></label>
+      <label class="f">Tax %<input id="tax" type="text" inputmode="decimal" placeholder="0"></label>
+      <label class="f">Discount (amount)<input id="disc" type="text" inputmode="decimal" placeholder="0"></label>
+      <label class="f">Round each share up to<input id="round" type="text" inputmode="decimal" placeholder="0 (off)"></label>
+      <label class="f">Paid by<select id="payer"></select></label>
+    </div>
+    <label class="check"><input id="taxsvc" type="checkbox"> Tax is charged on top of the service charge</label>
+  </section>
+
+  <section class="panel" aria-labelledby="h-res" aria-live="polite">
+    <h2 id="h-res"><span class="n">4</span> Result</h2>
+    <div id="results"></div>
+    <div id="notes"></div>
+    <div class="actions">
+      <button id="copy" class="primary" type="button">Copy summary</button>
+      <button id="reset" type="button">Start over</button>
+    </div>
+  </section>
+
+  <footer>Split Bill &middot; MIT License &middot; No account, no server, no tracking</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
